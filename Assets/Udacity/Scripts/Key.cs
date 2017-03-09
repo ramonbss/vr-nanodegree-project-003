@@ -7,12 +7,15 @@ public class Key : MonoBehaviour
     //Create a reference to the KeyPoofPrefab and Door
 
 	Vector3 y_position;
-	public Maze_Player Player;
+	public GameObject MazeController;
+	private bool clicked = false;
+	private AudioSource _audio_source			= null;
 
 
 	void Awake()
 	{
 		y_position = transform.position;
+		_audio_source				= gameObject.GetComponent<AudioSource>();
 	}
 
 	void Update()
@@ -30,7 +33,20 @@ public class Key : MonoBehaviour
         // Call the Unlock() method on the Door
         // Set the Key Collected Variable to true
         // Destroy the key. Check the Unity documentation on how to use Destroy
-		//Player.GetComponent<Maze_Pl>;
+		if (clicked == false) {
+			MazeController.GetComponent<MazeController> ().has_key = true;
+
+			_audio_source.Play();
+			GetComponent<MeshRenderer>().enabled = false;
+			Invoke( "onDestroy", 1f );
+
+		}
     }
+
+	public void onDestroy()
+	{
+		//Debug.Log ("Destroyed");
+		Destroy (gameObject);
+	}
 
 }
