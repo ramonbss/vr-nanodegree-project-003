@@ -92,12 +92,14 @@
      <Compile Include="Assets\GoogleVR\Scripts\Utilities\GvrFPS.cs" />
      <Compile Include="Assets\GoogleVR\Scripts\Utilities\GvrIntent.cs" />
      <Compile Include="Assets\Udacity\Ramon\Scripts\MazeController.cs" />
+     <Compile Include="Assets\Udacity\Ramon\Scripts\bonus_coin.cs" />
      <Compile Include="Assets\Udacity\Scripts\Coin.cs" />
      <Compile Include="Assets\Udacity\Scripts\DieAfterSeconds.cs" />
      <Compile Include="Assets\Udacity\Scripts\Door.cs" />
      <Compile Include="Assets\Udacity\Scripts\Key.cs" />
      <Compile Include="Assets\Udacity\Scripts\SignPost.cs" />
      <Compile Include="Assets\Udacity\Scripts\Waypoint.cs" />
+     <Compile Include="Assets\canvas_trigger.cs" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
      <None Include="Assets\GoogleVR\Distortion\GvrDistortion.cginc" />
      <None Include="Assets\GoogleVR\Legacy\Resources\UnlitTexture.shader" />

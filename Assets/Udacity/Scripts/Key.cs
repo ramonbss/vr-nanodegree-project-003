@@ -35,9 +35,11 @@ public class Key : MonoBehaviour
         // Destroy the key. Check the Unity documentation on how to use Destroy
 		if (clicked == false) {
 			MazeController.GetComponent<MazeController> ().has_key = true;
+			MazeController.GetComponent<MazeController> ().show_msg ("Got the key! Now I need to find where the door is...");
 
 			_audio_source.Play();
 			GetComponent<MeshRenderer>().enabled = false;
+			transform.Translate (0f,-10f,0f);
 			Invoke( "onDestroy", 1f );
 
 		}
