@@ -6,16 +6,16 @@ public class Key : MonoBehaviour
 {
     //Create a reference to the KeyPoofPrefab and Door
 
-	Vector3 y_position;
-	public GameObject MazeController;
-	private bool clicked = false;
-	private AudioSource _audio_source			= null;
+	Vector3 y_position;						// Store key atual rotation
+	public GameObject MazeController;		// Reference to MazeController
+	private bool clicked = false;			// Check if key was clicked
+	private AudioSource _audio_source;
 
 
 	void Awake()
 	{
 		y_position = transform.position;
-		_audio_source				= gameObject.GetComponent<AudioSource>();
+		_audio_source = gameObject.GetComponent<AudioSource>();
 	}
 
 	void Update()
@@ -38,8 +38,12 @@ public class Key : MonoBehaviour
 			MazeController.GetComponent<MazeController> ().show_msg ("Got the key! Now I need to find where the door is...");
 
 			_audio_source.Play();
+			// Make key "invisible"
 			GetComponent<MeshRenderer>().enabled = false;
+			// Due the key still have a collider and receive click events
+			// Move it far away from sight
 			transform.Translate (0f,-10f,0f);
+			// Destroy Key after 1 second, to not stop audioClip
 			Invoke( "onDestroy", 1f );
 
 		}
